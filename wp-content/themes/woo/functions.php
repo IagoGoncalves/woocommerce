@@ -296,7 +296,7 @@ add_action( 'wp_enqueue_scripts', 'wp_enqueue_woocommerce_style' );
  * Insert Custom Post Type
  */
 
- 
+ //car
  function my_first_post_type(){
 	$args = array(
 		'labels' => array(
@@ -326,3 +326,34 @@ add_action( 'wp_enqueue_scripts', 'wp_enqueue_woocommerce_style' );
 	register_taxonomy('brands', array('cars'), $args);
  }
  add_action('init', 'my_first_taxonomy');
+
+ //food
+ function my_second_post_type(){
+	$args = array(
+		'labels' => array(
+			'name' => 'Foods',
+			'singular_name' => 'food',
+		),
+		'hierarchical' => true,
+		'public' => true,
+		'has_archive' => true,
+		'menu_icon' => 'dashicons-images-alt2',
+		'support' => array('title', 'editor', 'thumbnail'),
+		// 'rewrite' => array('slug' => 'my-cars'),
+	);
+	register_post_type('foods', $args);
+ }
+ add_action('init', 'my_second_post_type');
+
+ function my_second_taxonomy(){
+	$args = array(
+		'labels' => array(
+			'name' => 'Brands1',
+			'singular_name' => 'Brand1',
+		),
+		'public' => true, 
+		'hierarchical' => true,
+	);
+	register_taxonomy('brands', array('foods'), $args);
+ }
+ add_action('init', 'my_second_taxonomy');

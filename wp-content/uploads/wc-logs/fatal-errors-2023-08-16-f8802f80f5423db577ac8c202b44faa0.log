@@ -50,3 +50,9 @@
 
 2023-08-16T15:01:56+00:00 CRITICAL syntax error, unexpected ''support'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in C:\wamp64\www\woocommerce\wp-content\themes\woo\functions.php on line 310
 
+2023-08-16T18:08:25+00:00 CRITICAL Cannot redeclare my_first_taxonomy() (previously declared in C:\wamp64\www\woocommerce\wp-content\themes\woo\functions.php:317) in C:\wamp64\www\woocommerce\wp-content\themes\woo\functions.php on line 348
+
+2023-08-16T18:08:26+00:00 CRITICAL Cannot redeclare my_first_taxonomy() (previously declared in C:\wamp64\www\woocommerce\wp-content\themes\woo\functions.php:317) in C:\wamp64\www\woocommerce\wp-content\themes\woo\functions.php on line 348
+
+2023-08-16T18:08:57+00:00 CRITICAL Cannot redeclare my_first_taxonomy() (previously declared in C:\wamp64\www\woocommerce\wp-content\themes\woo\functions.php:317) in C:\wamp64\www\woocommerce\wp-content\themes\woo\functions.php on line 348
+
