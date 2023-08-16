@@ -32,11 +32,11 @@
 					<ul class="announcement-bar__list">
 						<li>
 							<i class="bi bi-telephone rounded-circle"></i>
-							<a href="tel: +55 35 984245189">+55 35 984245189</a>
+							<a href="tel: +55 35 984245189" class="text-decoration-none">+55 35 984245189</a>
 						</li>
 						<li>
 							<i class="bi bi-envelope rounded-circle"></i>
-							<a href="mailto:iago_375@hotmail.com">iago_375@hotmail.com</a>
+							<a href="mailto:iago_375@hotmail.com" class="text-decoration-none">iago_375@hotmail.com</a>
 						</li>
 					</ul>
 				</div>
