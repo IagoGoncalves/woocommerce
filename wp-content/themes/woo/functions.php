@@ -214,3 +214,80 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	$fragments['a.cart-customlocation'] = ob_get_clean();
 	return $fragments;
 }
+
+/**
+ * Footer Widget One
+ */
+function custom_footer_widget_one(){
+	$args = array(
+		'id' => 'footer-widget-col-one',
+		'name' => __('Footer Column One', 'text-domain'),
+		'description' => __('Column One', 'text_domain'),
+		'before_title' => '<h3 class="title">',
+		'after_title' => '</h3>',
+		'before_widget' =>'<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>'
+	);
+	register_sidebar($args);
+}
+add_action('widgets_init', 'custom_footer_widget_one');
+
+/**
+ * Footer Widget two
+ */
+function custom_footer_widget_two(){
+	$args = array(
+		'id' => 'footer-widget-col-two',
+		'name' => __('Footer Column Two', 'text-domain'),
+		'description' => __('Column Two', 'text_domain'),
+		'before_title' => '<h3 class="title">',
+		'after_title' => '</h3>',
+		'before_widget' =>'<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>'
+	);
+	register_sidebar($args);
+}
+add_action('widgets_init', 'custom_footer_widget_two');
+
+/**
+ * Footer Widget three
+ */
+function custom_footer_widget_three(){
+	$args = array(
+		'id' => 'footer-widget-col-three',
+		'name' => __('Footer Column Three', 'text-domain'),
+		'description' => __('Column Three', 'text_domain'),
+		'before_title' => '<h3 class="title">',
+		'after_title' => '</h3>',
+		'before_widget' =>'<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>'
+	);
+	register_sidebar($args);
+}
+add_action('widgets_init', 'custom_footer_widget_three');
+
+/**
+ * Woocommerce
+ */
+add_theme_support('woocommerce');
+
+//Remove woocommerce styles
+function remove_woocommerce_styles($enqueue_styles){
+	unset( $enqueue_styles['woocommerce-general'] );	// Remove the gloss
+	// unset( $enqueue_styles['woocommerce-layout'] );		// Remove the layout
+	// unset( $enqueue_styles['woocommerce-smallscreen'] );	// Remove the smallscreen optimisation
+	return $enqueue_styles;
+}
+add_filter('woocommerce_enqueue_styles', 'remove_woocommerce_styles');
+
+/**
+ * Enqueue your own stylesheet
+ */
+function wp_enqueue_woocommerce_style(){
+	wp_register_style( 'mytheme-woocommerce', get_template_directory_uri() . '/css/woocommerce/woocommerce.css' );
+	
+	if ( class_exists( 'woocommerce' ) ) {
+		wp_enqueue_style( 'mytheme-woocommerce' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'wp_enqueue_woocommerce_style' );
