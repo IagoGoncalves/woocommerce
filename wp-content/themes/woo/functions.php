@@ -291,3 +291,38 @@ function wp_enqueue_woocommerce_style(){
 	}
 }
 add_action( 'wp_enqueue_scripts', 'wp_enqueue_woocommerce_style' );
+
+/**
+ * Insert Custom Post Type
+ */
+
+ 
+ function my_first_post_type(){
+	$args = array(
+		'labels' => array(
+			'name' => 'Cars',
+			'singular_name' => 'car',
+		),
+		'hierarchical' => true,
+		'public' => true,
+		'has_archive' => true,
+		'menu_icon' => 'dashicons-images-alt2',
+		'support' => array('title', 'editor', 'thumbnail'),
+		// 'rewrite' => array('slug' => 'my-cars'),
+	);
+	register_post_type('cars', $args);
+ }
+ add_action('init', 'my_first_post_type');
+
+ function my_first_taxonomy(){
+	$args = array(
+		'labels' => array(
+			'name' => 'Brands',
+			'singular_name' => 'Brand',
+		),
+		'public' => true, 
+		'hierarchical' => true,
+	);
+	register_taxonomy('brands', array('cars'), $args);
+ }
+ add_action('init', 'my_first_taxonomy');
